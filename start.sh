@@ -15,6 +15,7 @@ if [[ ! -f /app/data/config.yml ]]; then
     sed -i "s,audioBitrate:.*,audioBitrate: 256," /app/data/config.yml
     sed -i "s,stream:.*,stream: true," /app/data/config.yml
 
+    echo -e "\nremux: true" >> /app/data/config.yml
 fi
 
 if [[ ! -d /tmp/templates_c/ ]]; then

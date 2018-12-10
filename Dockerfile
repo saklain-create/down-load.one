@@ -2,6 +2,8 @@ FROM cloudron/base:1.0.0@sha256:147a648a068a2e746644746bbfb42eb7a50d682437cead3c
 
 ENV ATVERSION=1.2.4
 
+EXPOSE 80
+
 RUN mkdir -p /app/code/ /run/sessions /app/data
 WORKDIR /app/code
 
@@ -27,10 +29,10 @@ COPY apache/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
 
 RUN a2disconf other-vhosts-access-log
 ADD apache/alltube.conf /etc/apache2/sites-enabled/alltube.conf
-RUN echo "Listen 8000" > /etc/apache2/ports.conf
+RUN echo "Listen 80" > /etc/apache2/ports.conf
 
 # configure mod_php
-RUN a2enmod rewrite mime
+RUN a2enmod rewrite mime ldap authnz_ldap
 RUN crudini --set /etc/php/7.2/apache2/php.ini PHP upload_max_filesize 128M && \
     crudini --set /etc/php/7.2/apache2/php.ini PHP upload_max_size 128M && \
     crudini --set /etc/php/7.2/apache2/php.ini PHP post_max_size 256M && \

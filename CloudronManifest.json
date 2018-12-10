@@ -7,12 +7,12 @@
   "postInstallMessage": "file://POSTINSTALL.md",
   "tagline": "HTML GUI for youtube-dl (alltubedownload.net)",
   "version": "0.1.0",
-  "healthCheckPath": "/",
-  "httpPort": 8000,
+  "healthCheckPath": "/healthcheck",
+  "httpPort": 80,
   "memoryLimit": 268435456,
   "addons": {
     "localstorage": {},
-    "sendmail": {}
+    "ldap": {}
   },
   "manifestVersion": 1,
   "website": "https://alltubedownload.net",
