@@ -8,6 +8,8 @@ if [[ ! -f /app/data/config.yml ]]; then
     # set up default directories with write access and copy the data from readonly
     cp /app/code/config/config.example.yml /app/data/config.yml
     cp /app/code/.htaccess_orig /app/data/htaccess
+    mkdir -p /app/data/templates_c/
+    chmod 770 /app/data/templates_c/
 
     # update config with ffmpeg and audio conversion
     sed -i "s,convert:.*,convert: true," /app/data/config.yml
@@ -18,12 +20,8 @@ if [[ ! -f /app/data/config.yml ]]; then
     echo -e "\nremux: true" >> /app/data/config.yml
 fi
 
-if [[ ! -d /tmp/templates_c/ ]]; then
-    mkdir /tmp/templates_c/
-fi
-
-if [[ ! -d /tmp/sessions/ ]]; then
-    mkdir /tmp/sessions/
+if [[ ! -d /run/sessions/ ]]; then
+    mkdir /run/sessions/
 fi
 
 

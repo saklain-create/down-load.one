@@ -12,7 +12,7 @@ RUN wget https://github.com/Rudloff/alltube/releases/download/${ATVERSION}/alltu
     unzip alltube-${ATVERSION}.zip && rm alltube-${ATVERSION}.zip && \
     mv /app/code/.htaccess /app/code/.htaccess_orig && \
     rm -rf /app/code/templates_c && \
-    ln -s /tmp/templates_c /app/code/templates_c && \
+    ln -s /app/data/templates_c /app/code/templates_c && \
     ln -s /app/data/htaccess /app/code/.htaccess && \
     ln -s /app/data/config.yml /app/code/config/config.yml
 
