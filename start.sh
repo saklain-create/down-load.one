@@ -16,8 +16,9 @@ if [[ ! -f /app/data/config.yml ]]; then
     sed -i "s,avconv:.*,avconv: /usr/bin/ffmpeg," /app/data/config.yml
     sed -i "s,audioBitrate:.*,audioBitrate: 256," /app/data/config.yml
     sed -i "s,stream:.*,stream: true," /app/data/config.yml
+    sed -i "s,remux:.*,remux: true," /app/data/config.yml
+    sed -i "s,appName:.*,appName: Cloudron Alltube Download," /app/data/config.yml
 
-    echo -e "\nremux: true" >> /app/data/config.yml
 fi
 
 if [[ ! -d /run/sessions/ ]]; then
