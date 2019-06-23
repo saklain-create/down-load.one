@@ -1,3 +1,6 @@
+[0.1.6]
+* Update to v2.0.4 (Upgraded youtube-dl to 2019.06.21)
+
 [0.1.5]
 * Bump to v2.0.3 (includes various fixes, mp3 conversion etc)
 
