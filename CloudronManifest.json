@@ -6,7 +6,7 @@
   "changelog": "file://CHANGELOG",
   "postInstallMessage": "file://POSTINSTALL.md",
   "tagline": "HTML GUI for youtube-dl (alltubedownload.net)",
-  "version": "0.2.0",
+  "version": "0.1.8",
   "healthCheckPath": "/healthcheck",
   "httpPort": 80,
   "memoryLimit": 268435456,
