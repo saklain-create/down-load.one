@@ -13,6 +13,7 @@ if [[ ! -f /app/data/config.yml ]]; then
 
     # update config with ffmpeg and audio conversion
     sed -i "s,convert:.*,convert: true," /app/data/config.yml
+    sed -i "s,convertAdvanced:.*,convertAdvanced: true," /app/data/config.yml
     sed -i "s,avconv:.*,avconv: /usr/bin/ffmpeg," /app/data/config.yml
     sed -i "s,audioBitrate:.*,audioBitrate: 256," /app/data/config.yml
     sed -i "s,stream:.*,stream: true," /app/data/config.yml

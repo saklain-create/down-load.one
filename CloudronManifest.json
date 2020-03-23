@@ -14,7 +14,7 @@
     "localstorage": {},
     "ldap": {}
   },
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "website": "https://alltubedownload.net",
   "contactEmail": "support@cloudron.io",
   "icon": "logo.png",
