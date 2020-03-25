@@ -1,12 +1,12 @@
 {
   "id": "alltubedownload.cloudronapp",
-  "title": "AllTube Download",
+  "title": "AllTube",
   "author": "AllTube authors",
   "description": "file://DESCRIPTION.md",
   "changelog": "file://CHANGELOG",
   "postInstallMessage": "file://POSTINSTALL.md",
-  "tagline": "HTML GUI for youtube-dl (alltubedownload.net)",
-  "version": "0.2.0",
+  "tagline": "Webinterface for youtube-dl",
+  "version": "1.0.0",
   "healthCheckPath": "/healthcheck",
   "httpPort": 80,
   "memoryLimit": 268435456,
@@ -14,6 +14,7 @@
     "localstorage": {},
     "ldap": {}
   },
+  "optionalSso": true,
   "manifestVersion": 2,
   "website": "https://alltubedownload.net",
   "contactEmail": "support@cloudron.io",
