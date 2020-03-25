@@ -2,6 +2,9 @@
 
 set -eux
 
+echo "=> Ensure directories"
+mkdir -p /run/sessions/
+
 if [[ ! -f /app/data/config.yml ]]; then
     echo "=> Detected first run"
 
@@ -22,12 +25,7 @@ if [[ ! -f /app/data/config.yml ]]; then
 
 fi
 
-if [[ ! -d /run/sessions/ ]]; then
-    mkdir /run/sessions/
-fi
-
-
-echo "=> Ensuring runtime directories"
+echo "=> Ensuring permissions"
 chown -R www-data.www-data /app/data /run /tmp
 
 echo "=> Run alltube"
