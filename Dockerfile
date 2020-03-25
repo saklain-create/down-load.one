@@ -2,7 +2,7 @@ FROM cloudron/base:1.0.0@sha256:147a648a068a2e746644746bbfb42eb7a50d682437cead3c
 
 ENV ATVERSION=2.2.1
 
-RUN mkdir -p /app/code/ /run/sessions /app/data
+RUN mkdir -p /app/code /app/pkg /run/sessions /app/data
 
 WORKDIR /app/code
 
@@ -28,7 +28,8 @@ COPY apache/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
 
 RUN a2disconf other-vhosts-access-log
 RUN a2enconf php7.2-fpm
-ADD apache/alltube.conf /etc/apache2/sites-enabled/alltube.conf
+COPY apache/alltube.conf.template /app/pkg/alltube.conf.template
+RUN ln -s /run/alltube.conf /etc/apache2/sites-enabled/alltube.conf
 RUN echo "Listen 80" > /etc/apache2/ports.conf
 
 # configure mod_php
@@ -42,7 +43,7 @@ RUN crudini --set /etc/php/7.2/apache2/php.ini PHP upload_max_filesize 128M && \
     crudini --set /etc/php/7.2/apache2/php.ini Session session.gc_probability 1 && \
     crudini --set /etc/php/7.2/apache2/php.ini Session session.gc_divisor 100
 
-ADD start.sh /app/
+COPY start.sh /app/
 
 RUN chown -R www-data.www-data /app/code /run/ /tmp /app/data
 

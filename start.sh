@@ -3,7 +3,7 @@
 set -eux
 
 echo "=> Ensure directories"
-mkdir -p /run/sessions/
+mkdir -p /run/sessions/ /app/data/templates_c/
 
 if [[ ! -f /app/data/config.yml ]]; then
     echo "=> Detected first run"
@@ -11,8 +11,6 @@ if [[ ! -f /app/data/config.yml ]]; then
     # set up default directories with write access and copy the data from readonly
     cp /app/code/config/config.example.yml /app/data/config.yml
     cp /app/code/.htaccess_orig /app/data/htaccess
-    mkdir -p /app/data/templates_c/
-    chmod 770 /app/data/templates_c/
 
     # update config with ffmpeg and audio conversion
     sed -i "s,convert:.*,convert: true," /app/data/config.yml
@@ -22,8 +20,10 @@ if [[ ! -f /app/data/config.yml ]]; then
     sed -i "s,stream:.*,stream: true," /app/data/config.yml
     sed -i "s,remux:.*,remux: true," /app/data/config.yml
     sed -i "s,appName:.*,appName: Cloudron Alltube Download," /app/data/config.yml
-
 fi
+
+echo "=> Generate alltube apache config"
+cp /app/pkg/alltube.conf.template /run/alltube.conf
 
 echo "=> Ensuring permissions"
 chown -R www-data.www-data /app/data /run /tmp
