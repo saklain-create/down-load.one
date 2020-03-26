@@ -28,7 +28,7 @@ COPY apache/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
 
 RUN a2disconf other-vhosts-access-log
 RUN a2enconf php7.2-fpm
-COPY apache/alltube.conf.template /app/pkg/alltube.conf.template
+COPY apache/alltube.conf.ldap apache/alltube.conf.noldap /app/pkg/
 RUN ln -s /run/alltube.conf /etc/apache2/sites-enabled/alltube.conf
 RUN echo "Listen 80" > /etc/apache2/ports.conf
 

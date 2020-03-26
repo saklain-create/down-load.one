@@ -22,8 +22,13 @@ if [[ ! -f /app/data/config.yml ]]; then
     sed -i "s,appName:.*,appName: Cloudron Alltube Download," /app/data/config.yml
 fi
 
-echo "=> Generate alltube apache config"
-cp /app/pkg/alltube.conf.template /run/alltube.conf
+if [[ -n "${CLOUDRON_LDAP_SERVER:-}" ]]; then
+    echo "=> Generate alltube apache config with LDAP"
+    cp /app/pkg/alltube.conf.ldap /run/alltube.conf
+else
+    echo "=> Generate alltube apache config without LDAP"
+    cp /app/pkg/alltube.conf.noldap /run/alltube.conf
+fi
 
 echo "=> Ensuring permissions"
 chown -R www-data.www-data /app/data /run /tmp

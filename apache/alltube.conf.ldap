@@ -1,0 +1,40 @@
+<VirtualHost *:80>
+    DocumentRoot /app/code
+
+    ErrorLog "/dev/stderr"
+    CustomLog "/dev/stdout" combined
+
+    <Location />
+        AllowOverride None
+
+        Order deny,allow
+        Deny from all
+
+        AuthType Basic
+        AuthBasicProvider ldap
+        AuthName "Use your Cloudron Account to login"
+        AuthLDAPURL ${CLOUDRON_LDAP_URL}/${CLOUDRON_LDAP_USERS_BASE_DN}?username?sub?(objectclass=user)
+        AuthLDAPBindDN "${CLOUDRON_LDAP_BIND_DN}"
+        AuthLDAPBindPassword "${CLOUDRON_LDAP_BIND_PASSWORD}"
+        Require valid-user
+        Satisfy any
+    </Location>
+
+
+    <Directory /app/code/>
+        Options +FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    <Location /healthcheck>
+        Order allow,deny
+        Allow from all
+        Satisfy Any
+
+        ErrorDocument 200 "ok"
+        RewriteEngine On
+        RewriteRule "/healthcheck" - [R=200]
+    </Location>
+
+</VirtualHost>
