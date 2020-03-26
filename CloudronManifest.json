@@ -1,10 +1,9 @@
 {
-  "id": "alltubedownload.cloudronapp",
+  "id": "net.alltubedownload.cloudronapp",
   "title": "AllTube",
   "author": "AllTube authors",
   "description": "file://DESCRIPTION.md",
   "changelog": "file://CHANGELOG",
-  "postInstallMessage": "file://POSTINSTALL.md",
   "tagline": "Webinterface for youtube-dl",
   "version": "1.0.0",
   "healthCheckPath": "/healthcheck",
