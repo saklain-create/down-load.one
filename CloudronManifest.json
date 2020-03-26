@@ -19,7 +19,12 @@
   "contactEmail": "support@cloudron.io",
   "icon": "logo.png",
   "tags": [
-    "video, mp3, youtube, download"
+    "video",
+    "mp3",
+    "youtube",
+    "download"
   ],
-  "mediaLinks": [ ]
+  "mediaLinks": [
+    "https://cloudron-app-screenshots.s3.amazonaws.com/net.alltubedownload.cloudronapp/a3da3a4b17d1859a878c30f764fb6f17430e78a7/alltube_00.png"
+  ]
 }
