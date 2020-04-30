@@ -33,3 +33,7 @@
 
 [1.0.1]
 * Update app description
+
+[1.1.0]
+* Use latest base image 2.0.0
+
