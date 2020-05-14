@@ -37,3 +37,7 @@
 [1.1.0]
 * Use latest base image 2.0.0
 
+[1.2.0]
+* Update Alltube to 2.3.0
+* [Full changelog](https://github.com/Rudloff/alltube/releases/tag/2.3.0)
+
