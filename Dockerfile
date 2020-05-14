@@ -2,7 +2,7 @@ FROM cloudron/base:2.0.0@sha256:f9fea80513aa7c92fe2e7bf3978b54c8ac5222f47a9a32a7
 
 ARG ATVERSION=2.3.0
 
-RUN mkdir -p /app/code /app/pkg /run/sessions /app/data
+RUN mkdir -p /app/code /app/pkg
 
 WORKDIR /app/code
 
