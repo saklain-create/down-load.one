@@ -39,8 +39,8 @@ RUN crudini --set /etc/php/7.3/apache2/php.ini PHP upload_max_filesize 128M && \
     crudini --set /etc/php/7.3/apache2/php.ini Session session.gc_probability 1 && \
     crudini --set /etc/php/7.3/apache2/php.ini Session session.gc_divisor 100
 
-COPY start.sh /app/
+COPY start.sh /app/pkg/
 
 RUN chown -R www-data.www-data /app/code /run/ /tmp /app/data
 
-CMD [ "/app/start.sh" ]
+CMD [ "/app/pkg/start.sh" ]
