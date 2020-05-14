@@ -66,13 +66,13 @@ describe('Application life cycle test', function () {
     it('uninstall app', function () { execSync(`cloudron uninstall --app ${app.id}`, EXEC_ARGS); });
 
     // test update
-    // it('can install app', function () { execSync(`cloudron install --appstore-id com.nextcloud.cloudronapp --location ${LOCATION}`, EXEC_ARGS); });
-    // it('can get app information', getAppInfo);
-    // it('can login', login);
+    it('can install app', function () { execSync(`cloudron install --appstore-id net.alltubedownload.cloudronapp --location ${LOCATION}`, EXEC_ARGS); });
+    it('can get app information', getAppInfo);
+    it('can login', login);
 
-    // it('can update', function () { execSync(`cloudron update --app ${LOCATION}`, EXEC_ARGS); });
+    it('can update', function () { execSync(`cloudron update --app ${LOCATION}`, EXEC_ARGS); });
 
-    // it('can login', login);
+    it('can login', login);
 
-    // it('uninstall app', function () { execSync(`cloudron uninstall --app ${app.id}`, EXEC_ARGS); });
+    it('uninstall app', function () { execSync(`cloudron uninstall --app ${app.id}`, EXEC_ARGS); });
 });
