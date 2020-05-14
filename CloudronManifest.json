@@ -7,7 +7,7 @@
   "tagline": "Webinterface for youtube-dl",
   "version": "1.1.0",
   "healthCheckPath": "/healthcheck",
-  "httpPort": 80,
+  "httpPort": 8000,
   "memoryLimit": 268435456,
   "addons": {
     "localstorage": {},

@@ -26,7 +26,7 @@ COPY apache/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
 RUN a2disconf other-vhosts-access-log
 COPY apache/alltube.conf.ldap apache/alltube.conf.noldap /app/pkg/
 RUN ln -s /run/alltube.conf /etc/apache2/sites-enabled/alltube.conf
-RUN echo "Listen 80" > /etc/apache2/ports.conf
+RUN echo "Listen 8000" > /etc/apache2/ports.conf
 
 # configure mod_php
 RUN a2enmod rewrite mime ldap authnz_ldap proxy_fcgi setenvif
