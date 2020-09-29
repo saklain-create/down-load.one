@@ -44,3 +44,6 @@
 [1.3.0]
 * Add forum url
 
+[1.3.1]
+* Make php.ini customizable
+
