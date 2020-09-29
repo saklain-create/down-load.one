@@ -20,9 +20,9 @@
   "icon": "logo.png",
   "tags": ["video", "mp3", "youtube", "download" ],
   "mediaLinks": [
-    "https://cloudron-app-screenshots.s3.amazonaws.com/net.alltubedownload.cloudronapp/a3da3a4b17d1859a878c30f764fb6f17430e78a7/alltube_00.png"
+    "https://screenshots.cloudron.io/net.alltubedownload.cloudronapp/alltube_00.png"
   ],
-  "documentationUrl": "https://cloudron.io/documentation/apps/alltube/",
+  "documentationUrl": "https://docs.cloudron.io/apps/alltube/",
   "forumUrl": "https://forum.cloudron.io/category/63/alltube",
   "minBoxVersion": "5.3.0"
 }
