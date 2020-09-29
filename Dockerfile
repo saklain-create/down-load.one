@@ -39,6 +39,9 @@ RUN crudini --set /etc/php/7.3/apache2/php.ini PHP upload_max_filesize 128M && \
     crudini --set /etc/php/7.3/apache2/php.ini Session session.gc_probability 1 && \
     crudini --set /etc/php/7.3/apache2/php.ini Session session.gc_divisor 100
 
+RUN ln -s /app/data/php.ini /etc/php/7.3/apache2/conf.d/99-cloudron.ini && \
+    ln -s /app/data/php.ini /etc/php/7.3/cli/conf.d/99-cloudron.ini
+
 COPY start.sh /app/pkg/
 
 RUN chown -R www-data.www-data /app/code /app/pkg
