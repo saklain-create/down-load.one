@@ -1,18 +1,20 @@
 FROM cloudron/base:2.0.0@sha256:f9fea80513aa7c92fe2e7bf3978b54c8ac5222f47a9a32a7f8833edf0eb5a4f4
 
-ARG ATVERSION=2.3.0
+ARG VERSION=f6d3a72c3119805466b5c1676d969bd3e77afbc8
 
 RUN mkdir -p /app/code /app/pkg
 
 WORKDIR /app/code
 
 # get alltube and extract it
-RUN wget https://github.com/Rudloff/alltube/releases/download/${ATVERSION}/alltube-${ATVERSION}.zip && \
-    unzip alltube-${ATVERSION}.zip && rm alltube-${ATVERSION}.zip && \
-    mv /app/code/.htaccess /app/code/.htaccess_orig && \
+RUN curl -L https://github.com/Rudloff/alltube/archive/${VERSION}.tar.gz | tar -xz --strip-components 1 -f - && \
+    chown www-data:www-data -R /app/code
+
+RUN sudo -u www-data composer install --no-interaction --optimize-autoloader --no-dev && \
+    sudo -u www-data composer clear-cache && \
+    mv /app/code/.htaccess /app/code/.htaccess_orig && ln -s /app/data/htaccess /app/code/.htaccess && \
     rm -rf /app/code/templates_c && \
     ln -s /app/data/templates_c /app/code/templates_c && \
-    ln -s /app/data/htaccess /app/code/.htaccess && \
     ln -s /app/data/config.yml /app/code/config/config.yml
 
 # install requirements
