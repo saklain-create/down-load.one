@@ -1,4 +1,4 @@
-This app packages AllTube <upstream>2.3.0</upstream>.
+This app packages AllTube <upstream>3.0.0-beta4</upstream>.
 
 ### Overview
 

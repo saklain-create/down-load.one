@@ -1,5 +1,6 @@
 FROM cloudron/base:2.0.0@sha256:f9fea80513aa7c92fe2e7bf3978b54c8ac5222f47a9a32a7f8833edf0eb5a4f4
 
+# 3.0.0-beta4
 ARG VERSION=f6d3a72c3119805466b5c1676d969bd3e77afbc8
 
 RUN mkdir -p /app/code /app/pkg

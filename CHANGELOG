@@ -47,3 +47,6 @@
 [1.3.1]
 * Make php.ini customizable
 
+[1.4.0]
+* Update Alltube to 3.0.0-beta4
+
