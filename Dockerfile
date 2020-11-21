@@ -27,8 +27,7 @@ RUN sed -e 's,^ErrorLog.*,ErrorLog "|/bin/cat",' -i /etc/apache2/apache2.conf
 COPY apache/mpm_prefork.conf /etc/apache2/mods-available/mpm_prefork.conf
 
 RUN a2disconf other-vhosts-access-log
-COPY apache/alltube.conf.ldap apache/alltube.conf.noldap /app/pkg/
-RUN ln -s /run/alltube.conf /etc/apache2/sites-enabled/alltube.conf
+ADD apache/alltube.conf /etc/apache2/sites-enabled/alltube.conf
 RUN echo "Listen 8000" > /etc/apache2/ports.conf
 
 # configure mod_php
