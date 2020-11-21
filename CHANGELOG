@@ -50,3 +50,6 @@
 [1.4.0]
 * Update Alltube to 3.0.0-beta4
 
+[1.5.0]
+* Use proxyAuth addon
+
