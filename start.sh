@@ -22,6 +22,9 @@ if [[ ! -f /app/data/config.yml ]]; then
     sed -i "s,appName:.*,appName: Cloudron Alltube Download," /app/data/config.yml
 fi
 
+# can be removed after next release
+sed -e "s,^youtubedl:.*,youtubedl: /usr/local/bin/youtube-dl," -i /app/data/config.yml
+
 if [[ ! -f /app/data/php.ini ]]; then
     echo -e "; Add custom PHP configuration in this file\n; Settings here are merged with the package's built-in php.ini\n\n" > /app/data/php.ini
 fi

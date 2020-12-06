@@ -2,6 +2,7 @@ FROM cloudron/base:2.0.0@sha256:f9fea80513aa7c92fe2e7bf3978b54c8ac5222f47a9a32a7
 
 # 3.0.0-beta4
 ARG VERSION=f6d3a72c3119805466b5c1676d969bd3e77afbc8
+ARG YOUTUBEDL_VERSION=2020.12.07
 
 RUN mkdir -p /app/code /app/pkg
 
@@ -10,6 +11,10 @@ WORKDIR /app/code
 # get alltube and extract it
 RUN curl -L https://github.com/Rudloff/alltube/archive/${VERSION}.tar.gz | tar -xz --strip-components 1 -f - && \
     chown www-data:www-data -R /app/code
+
+# get latest youtube-dl
+RUN curl -L https://github.com/ytdl-org/youtube-dl/releases/download/${YOUTUBEDL_VERSION}/youtube-dl -o /usr/local/bin/youtube-dl && \
+    chmod +x /usr/local/bin/youtube-dl
 
 RUN sudo -u www-data composer install --no-interaction --optimize-autoloader --no-dev && \
     sudo -u www-data composer clear-cache && \
