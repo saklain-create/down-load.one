@@ -53,3 +53,6 @@
 [1.5.0]
 * Use proxyAuth addon
 
+[1.6.0]
+* Update youtube-dl to 2020.12.07
+
