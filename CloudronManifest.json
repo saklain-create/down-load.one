@@ -11,7 +11,7 @@
   "memoryLimit": 268435456,
   "addons": {
     "localstorage": {},
-    "proxyAuth": {}
+    "proxyAuth": { "path": "!/extractors" }
   },
   "optionalSso": true,
   "manifestVersion": 2,
