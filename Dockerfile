@@ -24,7 +24,8 @@ RUN sudo -u www-data composer install --no-interaction --optimize-autoloader --n
     ln -s /app/data/config.yml /app/code/config/config.yml
 
 # install requirements
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/cache/apt /var/lib/apt/lists
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+    apt-get update && apt-get install -y ffmpeg && rm -rf /var/cache/apt /var/lib/apt/lists
 
 # configure apache
 RUN rm /etc/apache2/sites-enabled/*
