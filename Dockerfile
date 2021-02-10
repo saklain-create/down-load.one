@@ -1,4 +1,4 @@
-FROM cloudron/base:2.0.0@sha256:f9fea80513aa7c92fe2e7bf3978b54c8ac5222f47a9a32a7f8833edf0eb5a4f4
+FROM cloudron/base:3.0.0@sha256:455c70428723e3a823198c57472785437eb6eab082e79b3ff04ea584faf46e92
 
 # 3.0.0-beta4
 ARG VERSION=f6d3a72c3119805466b5c1676d969bd3e77afbc8
@@ -38,17 +38,17 @@ RUN echo "Listen 8000" > /etc/apache2/ports.conf
 
 # configure mod_php
 RUN a2enmod rewrite mime ldap authnz_ldap proxy_fcgi setenvif
-RUN crudini --set /etc/php/7.3/apache2/php.ini PHP upload_max_filesize 128M && \
-    crudini --set /etc/php/7.3/apache2/php.ini PHP upload_max_size 128M && \
-    crudini --set /etc/php/7.3/apache2/php.ini PHP post_max_size 256M && \
-    crudini --set /etc/php/7.3/apache2/php.ini PHP memory_limit 256M && \
-    crudini --set /etc/php/7.3/apache2/php.ini PHP max_execution_time 200 && \
-    crudini --set /etc/php/7.3/apache2/php.ini Session session.save_path /run/sessions && \
-    crudini --set /etc/php/7.3/apache2/php.ini Session session.gc_probability 1 && \
-    crudini --set /etc/php/7.3/apache2/php.ini Session session.gc_divisor 100
+RUN crudini --set /etc/php/7.4/apache2/php.ini PHP upload_max_filesize 128M && \
+    crudini --set /etc/php/7.4/apache2/php.ini PHP upload_max_size 128M && \
+    crudini --set /etc/php/7.4/apache2/php.ini PHP post_max_size 256M && \
+    crudini --set /etc/php/7.4/apache2/php.ini PHP memory_limit 256M && \
+    crudini --set /etc/php/7.4/apache2/php.ini PHP max_execution_time 200 && \
+    crudini --set /etc/php/7.4/apache2/php.ini Session session.save_path /run/sessions && \
+    crudini --set /etc/php/7.4/apache2/php.ini Session session.gc_probability 1 && \
+    crudini --set /etc/php/7.4/apache2/php.ini Session session.gc_divisor 100
 
-RUN ln -s /app/data/php.ini /etc/php/7.3/apache2/conf.d/99-cloudron.ini && \
-    ln -s /app/data/php.ini /etc/php/7.3/cli/conf.d/99-cloudron.ini
+RUN ln -s /app/data/php.ini /etc/php/7.4/apache2/conf.d/99-cloudron.ini && \
+    ln -s /app/data/php.ini /etc/php/7.4/cli/conf.d/99-cloudron.ini
 
 COPY start.sh /app/pkg/
 
