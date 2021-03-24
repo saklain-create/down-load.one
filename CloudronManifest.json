@@ -11,7 +11,9 @@
   "memoryLimit": 268435456,
   "addons": {
     "localstorage": {},
-    "proxyAuth": {}
+    "proxyAuth": {
+      "basicAuth": true
+    }
   },
   "optionalSso": true,
   "manifestVersion": 2,
