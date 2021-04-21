@@ -81,3 +81,12 @@
 [1.8.1]
 * Update youtube-dl to 2021.03.25
 
+[1.9.0]
+* Update Alltube to 3.0.0
+* [Full changelog](https://github.com/Rudloff/alltube/releases/tag/3.0.0)
+* The Video class is now available as a separate Composer package (rudloff/alltube-library)
+* Setting the "stream" option to "ask" now works correctly
+* New locales are automatically detected
+* New Italian translation (thanks to @holoitsme)
+* If the "best" format does not exist, it will fall back to "bestvideo"
+
