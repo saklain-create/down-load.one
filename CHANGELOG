@@ -90,3 +90,6 @@
 * New Italian translation (thanks to @holoitsme)
 * If the "best" format does not exist, it will fall back to "bestvideo"
 
+[1.9.1]
+* Update youtube-dl to 2021.04.26
+

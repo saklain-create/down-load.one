@@ -1,4 +1,4 @@
-This app packages AllTube <upstream>3.0.0 (youtube-dl 2021.03.25)</upstream>.
+This app packages AllTube <upstream>3.0.0 (youtube-dl 2021.04.26)</upstream>.
 
 ### Overview
 
