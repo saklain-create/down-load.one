@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux
+set -eu
 
 echo "=> Ensure directories"
 mkdir -p /run/sessions/ /app/data/templates_c/
