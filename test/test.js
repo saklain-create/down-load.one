@@ -5,9 +5,10 @@
 /* global describe */
 /* global after */
 /* global before */
+/* global xit */
 /* global it */
 
-var execSync = require('child_process').execSync,
+const execSync = require('child_process').execSync,
     expect = require('expect.js'),
     path = require('path'),
     superagent = require('superagent');
@@ -20,27 +21,22 @@ if (!process.env.USERNAME || !process.env.PASSWORD) {
 describe('Application life cycle test', function () {
     this.timeout(0);
 
-    var EXEC_ARGS = { cwd: path.resolve(__dirname, '..'), stdio: 'inherit' };
-    var LOCATION = 'test';
+    const EXEC_ARGS = { cwd: path.resolve(__dirname, '..'), stdio: 'inherit' };
+    const LOCATION = 'test';
 
-    var app;
-    var username = process.env.USERNAME;
-    var password = process.env.PASSWORD;
+    let app;
+    const username = process.env.USERNAME;
+    const password = process.env.PASSWORD;
 
     function getAppInfo() {
-        var inspect = JSON.parse(execSync('cloudron inspect'));
+        const inspect = JSON.parse(execSync('cloudron inspect'));
         app = inspect.apps.filter(function (a) { return a.location.indexOf(LOCATION) === 0; })[0];
         expect(app).to.be.an('object');
     }
 
-    function login(callback) {
-        superagent.get(`https://${app.fqdn}`).auth(username, password).end(function (error, result) {
-            expect(error).to.be(null);
-            expect(result).to.be.ok();
-            expect(result.text).to.contain('Copy here the URL of your video');
-
-            callback();
-        });
+    async function login() {
+        const response = await superagent.get(`https://${app.fqdn}`).auth(username, password);
+        expect(response.text).to.contain('Copy here the URL of your video');
     }
 
     xit('build app', function () { execSync('cloudron build', EXEC_ARGS); });
