@@ -96,3 +96,6 @@
 [1.9.2]
 * Update youtube-dl to 2021.06.06
 
+[1.9.3]
+* Fix logs
+
