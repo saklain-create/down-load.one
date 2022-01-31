@@ -103,3 +103,6 @@
 * Update base image to 3.2.0
 * Update youtube-dl to 2021.12.17
 
+[1.10.0]
+* Use yt-dlp by default (2022.01.21)
+
