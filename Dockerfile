@@ -2,6 +2,7 @@ FROM cloudron/base:3.2.0@sha256:ba1d566164a67c266782545ea9809dc611c4152e27686fd1
 
 ARG VERSION=3.0.0
 ARG YOUTUBEDL_VERSION=2021.12.17
+ARG YTDLP_VERSION=2022.01.21
 
 RUN mkdir -p /app/code /app/pkg
 
@@ -14,6 +15,10 @@ RUN curl -L https://github.com/Rudloff/alltube/archive/${VERSION}.tar.gz | tar -
 # get latest youtube-dl
 RUN curl -L https://github.com/ytdl-org/youtube-dl/releases/download/${YOUTUBEDL_VERSION}/youtube-dl -o /usr/local/bin/youtube-dl && \
     chmod +x /usr/local/bin/youtube-dl
+
+# get latest yt-dlp
+RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/download/${YTDLP_VERSION}/yt-dlp -o /usr/local/bin/yt-dlp && \
+    chmod +x /usr/local/bin/yt-dlp
 
 RUN sudo -u www-data composer install --no-interaction --optimize-autoloader --no-dev && \
     sudo -u www-data composer clear-cache && \
