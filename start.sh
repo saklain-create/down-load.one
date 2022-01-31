@@ -20,10 +20,11 @@ if [[ ! -f /app/data/config.yml ]]; then
     sed -i "s,stream:.*,stream: true," /app/data/config.yml
     sed -i "s,remux:.*,remux: true," /app/data/config.yml
     sed -i "s,appName:.*,appName: Cloudron Alltube Download," /app/data/config.yml
-fi
 
-# can be removed after next release
-sed -e "s,^youtubedl:.*,youtubedl: /usr/local/bin/youtube-dl," -i /app/data/config.yml
+    # use ytdlp by default
+    sed -e "s,^youtubedl:.*,youtubedl: /usr/local/bin/yt-dlp," -i /app/data/config.yml
+    sed -e "s,^python:.*,python: /usr/bin/python3," -i /app/data/config.yml
+fi
 
 if [[ ! -f /app/data/php.ini ]]; then
     echo -e "; Add custom PHP configuration in this file\n; Settings here are merged with the package's built-in php.ini\n\n" > /app/data/php.ini
