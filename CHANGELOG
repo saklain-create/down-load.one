@@ -106,3 +106,7 @@
 [1.10.0]
 * Use yt-dlp by default (2022.01.21)
 
+[1.10.1]
+* Update Alltube to 3.0.1
+* [Full changelog](https://github.com/Rudloff/alltube/releases/tag/3.0.1)
+
