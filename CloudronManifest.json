@@ -5,7 +5,8 @@
   "description": "file://DESCRIPTION.md",
   "changelog": "file://CHANGELOG",
   "tagline": "Webinterface for youtube-dl",
-  "version": "1.10.1",
+  "version": "1.10.2",
+  "upstreamVersion": "3.0.2",
   "healthCheckPath": "/healthcheck",
   "httpPort": 8000,
   "memoryLimit": 268435456,
@@ -26,5 +27,5 @@
   ],
   "documentationUrl": "https://docs.cloudron.io/apps/alltube/",
   "forumUrl": "https://forum.cloudron.io/category/63/alltube",
-  "minBoxVersion": "6.0.0"
+  "minBoxVersion": "7.1.2"
 }

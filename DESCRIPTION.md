@@ -1,5 +1,3 @@
-This app packages AllTube <upstream>3.0.1 (yt-dlp 2022.01.21)</upstream>.
-
 ### Overview
 
 AllTube is a webinterface for [youtube-dl](https://ytdl-org.github.io/youtube-dl/).
