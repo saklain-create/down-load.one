@@ -4,8 +4,10 @@ RUN mkdir -p /app/code /app/pkg
 WORKDIR /app/code
 
 ARG VERSION=3.0.3
+# https://github.com/ytdl-org/youtube-dl/releases/
 ARG YOUTUBEDL_VERSION=2021.12.17
-ARG YTDLP_VERSION=2022.01.21
+# https://github.com/yt-dlp/yt-dlp/releases/tag/2022.08.08
+ARG YTDLP_VERSION=2022.08.08
 
 # get alltube and extract it
 RUN curl -L https://github.com/Rudloff/alltube/archive/${VERSION}.tar.gz | tar -xz --strip-components 1 -f - && \
