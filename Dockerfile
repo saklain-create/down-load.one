@@ -3,7 +3,7 @@ FROM cloudron/base:3.2.0@sha256:ba1d566164a67c266782545ea9809dc611c4152e27686fd1
 RUN mkdir -p /app/code /app/pkg
 WORKDIR /app/code
 
-ARG VERSION=3.0.3
+ARG VERSION=3.1.0
 # https://github.com/ytdl-org/youtube-dl/releases/
 ARG YOUTUBEDL_VERSION=2021.12.17
 # https://github.com/yt-dlp/yt-dlp/releases/tag/2022.08.08
